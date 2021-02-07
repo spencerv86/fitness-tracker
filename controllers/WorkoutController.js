@@ -7,10 +7,15 @@ const path = require("path");
 
 // Routes to the homepage
 router.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"))
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 // Routes to the stats page through stats.html
+router.get("/stats", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/stats.html"));
+});
+
+
 
 //API Routes
 
