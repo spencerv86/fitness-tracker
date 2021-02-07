@@ -1,6 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Workout = require("../models/Workout");
+const path = require("path");
+
+// HTML Routes
+
+
+
+//API Routes
 
 // This route fetches all of the workout data.
 router.get("/api/workouts", (req, res) => {
@@ -24,6 +31,7 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
+// Edits a specific workout by ID
 router.put("/api/workouts/:id", (req, res) => {
   let id = req.params.id;
   Workout.findOneAndUpdate(id, { $push: { exercises: req.body } })
@@ -35,6 +43,7 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
+// Deletes a specific Workout by ID
 router.delete("/api/workouts/:id", (req, res) => {
   let idToDel = req.params.id;
   Workout.deleteOne({ _id: idToDel }).then(function (workoutDel) {
