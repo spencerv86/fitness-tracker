@@ -25,12 +25,20 @@ router.post("/api/workouts", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-    let id = req.params.id;
-    Workout.findOneAndUpdate(id, {$push: {exercises: req.body}}).then((updatedWorkout) => {
+  let id = req.params.id;
+  Workout.findOneAndUpdate(id, { $push: { exercises: req.body } })
+    .then((updatedWorkout) => {
       res.json(updatedWorkout);
-    }).catch((err) => {
-      res.json(err);
     })
-})
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
+router.delete("/api/workouts/:id", (req, res) => {
+  let idToDel = req.params.id;
+  Workout.deleteOne({ _id: idToDel }).then(function (workoutDel) {
+    res.json(workoutDel);
+  });
+});
 module.exports = router;
