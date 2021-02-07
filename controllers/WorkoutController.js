@@ -15,7 +15,10 @@ router.get("/stats", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
-
+// Route for exercises.html to create new exercise
+router.get("/exercise", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/exercise.html"));
+});
 
 //API Routes
 
