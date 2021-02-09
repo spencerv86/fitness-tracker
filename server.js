@@ -18,6 +18,15 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useCreateIndex: true,
 });
 
+const connection = mongoose.connection;
+
+connection.on("connected", () => {
+  console.log("Successfully connected");
+});
+connection.on("error", () => {
+  console.log("Connection error" + err);
+});
+
 app.use(require("./controllers/WorkoutController"));
 
 app.listen(PORT, () => {
