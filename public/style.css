@@ -48,6 +48,11 @@ header h1 {
   transform: skewX(-2deg);
 }
 
+#link-dashboard {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
 select {
   display: block;
   -moz-appearance: none;
